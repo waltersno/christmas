@@ -1,0 +1,99 @@
+<div class="toys-page">
+  <div class="popup">
+    <p>Извините, все слоты заполнены</p>
+  </div>
+  <div class="configruratoin">
+    <div class="configruratoin-header">
+      <!-- <button><img src="../../assets/svg/audio.svg" alt="audio"></button>
+      <button><img src="../../assets/svg/snow.svg" alt="snowflake"></button> -->
+      <div class="search-wrapper">
+        <input type="text" class="search-input" placeholder="поиск" autocomplete="off">
+        <button><img src="../../assets/svg/search.svg" alt="search"></button>
+        <button class="clear-search">
+          <img src="../../assets/svg/delete-svgrepo-com.svg" alt="cross">
+        </button>
+      </div>
+    </div>
+    <div class="sort">
+      <label for="sort-input">Сортировать</label>
+      <select name="sort" id="sort-input">
+        <option disabled selected value="default"> Выберите сортировку </option>  
+        <option value="a-to-z">По названию от «А» до «Я»</option>
+        <option value="z-to-a">По названию от «Я» до «А»</option>
+        <option value="asc">По возрастанию</option>
+        <option value="desc">По убыванию</option>
+      </select>
+    </div>
+    <div class="filter-by-form">
+      <div class="filter-header">
+        Форма
+      </div>
+      <div class="filter-by-form__items">
+        <button data-option="filter" data-criterion="shape" data-type="bell"><img src="../../assets/svg/form/bell.svg"
+            alt="bell"><span>Колокол</span></button>
+        <button data-option="filter" data-criterion="shape" data-type="ball"><img src="../../assets/svg/form/ball.svg"
+            alt="ball"><span>Шар</span></button>
+        <button data-option="filter" data-criterion="shape" data-type="pine"><img src="../../assets/svg/form/pine.svg"
+            alt="pine"><span>Шишка</span></button>
+        <button data-option="filter" data-criterion="shape" data-type="snowflake"><img
+            src="../../assets/svg/form/snowflake.svg" alt="snowflake"><span>Снежинка</span></button>
+        <button data-option="filter" data-criterion="shape" data-type="figure"><img
+            src="../../assets/svg/form/bird_toy.svg" alt="bird_toy"><span>Фигура</span></button>
+      </div>
+    </div>
+    <div class="filter-by-count">
+      <span>Количество экземпляров</span>
+      <div class="uiSliderCountWrapper" data-option="count-range"></div>
+      <div class="spans-count">
+        <span class="count-slider-span"></span>
+        <span class="count-slider-span"></span>
+      </div>
+    </div>
+    <div class="filter-by-year">
+      <span>Год приобретения</span>
+      <div class="ui-slider-year" data-option="year-range"></div>
+      <div class="spans-year">
+        <span class="year-slider-span"></span>
+        <span class="year-slider-span"></span>
+      </div>
+    </div>
+    <div class="filter-by-color">
+      <div class="filter-header">
+        Цвет
+      </div>
+      <div class="color-buttons">
+        <button data-option="filter" data-criterion="color" data-type="white"></button>
+        <button data-option="filter" data-criterion="color" data-type="yellow"></button>
+        <button data-option="filter" data-criterion="color" data-type="red"></button>
+        <button data-option="filter" data-criterion="color" data-type="blue"></button>
+        <button data-option="filter" data-criterion="color" data-type="green"></button>
+      </div>
+    </div>
+    <div class="filter-by-size">
+      <div class="filter-header">
+        Размер
+      </div>
+      <div class="size-buttons">
+        <div class="size-buttons__item"><button data-option="filter" data-criterion="size" data-type="big"
+            ><span></span>Большой</button></div>
+        <div class="size-buttons__item"><button data-option="filter" data-criterion="size" data-type="average"
+            ><span></span>Средний</button></div>
+        <div class="size-buttons__item"><button data-option="filter" data-criterion="size" data-type="small"
+            ><span></span>Маленький</button></div>
+      </div>
+    </div>
+    <div class="favourite-buttons">
+      <button data-option="filter" data-criterion="favorite" data-type="isFavorite"><span></span>Только любимые</button>
+    </div>
+    <div class="reset-buttons">
+      <button data-option="reset-filter">Сбросить фильтры</button>
+      <button data-option="reset-local">Сбросить настройки</button>
+    </div>
+  </div>
+  <div class="toys-wrapper">
+    <h2>Игрушки</h2>
+    <div class="empty-container"></div>
+    <ul class="toys-list">
+    </ul>
+  </div>
+</div>

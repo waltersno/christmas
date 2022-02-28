@@ -1,0 +1,375 @@
+$dark-green: radial-gradient(
+  118.88% 606.86% at 0% 0%,
+  rgba(36, 197, 219, 0.15) 0%,
+  rgba(36, 197, 219, 0) 100%
+);
+
+$white-green: radial-gradient(
+  118.88% 606.86% at 0% 0%,
+  rgba(255, 255, 255, 0.2) 0%,
+  rgba(157, 243, 255, 0.2) 100%
+);
+
+$green-active: invert(9%) sepia(100%) saturate(700%) hue-rotate(60deg)
+  brightness(83%) contrast(88%);
+
+$toy-item-bg: radial-gradient(
+  109.56% 109.56% at 0% -2.94%,
+  rgba(255, 255, 255, 0.5) 0%,
+  rgba(179, 246, 255, 0.5) 100%
+);
+
+@mixin gradientButtonAndSelect {
+  background: $white-green;
+  backdrop-filter: blur(31px);
+  border-radius: 30px;
+}
+
+@mixin checkboxSpan {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: $white-green;
+  backdrop-filter: blur(31px);
+  border: 1px solid;
+  border-radius: 5px;
+}
+
+@mixin checkMark($color) {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 3px;
+  left: 7px;
+  width: 0;
+  height: 0;
+  border: solid $color;
+  transform: rotate(45deg);
+  border-width: 0;
+  transition: width 0.2s ease-in, height 0.2s ease-in, border-width 0.2s ease-in;
+}
+
+.toys-page {
+  display: flex;
+  padding: 1rem 2rem;
+  gap: 1.5rem;
+  .popup {
+    left: 38%;
+    position: fixed;
+    z-index: 100;
+    background: rgba(1, 1, 1, 0.8);
+    padding: 1rem 2.5rem;
+    border-radius: 10px;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.35s   ease-in, opacity 0.35s ease-in;
+    &.active {
+      visibility: visible;
+      opacity: 1;
+      transition: 0.35s ease-in;
+    }
+  }
+}
+
+.configruratoin {
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.configruratoin-header {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  img {
+    width: 25px;
+  }
+  .search-wrapper {
+    border: 1px solid;
+    display: flex;
+    align-items: center;
+    padding: 0.2rem 0.5rem 0.2rem 1rem;
+    background: $dark-green;
+    backdrop-filter: blur(31px);
+    border-radius: 30px;
+    input {
+      background: transparent;
+      min-width: 160px;
+    }
+    button {
+      display: flex;
+      align-items: center;
+    }
+    button.clear-search {
+      width: 13px;
+      height: 13px;
+      position: absolute;
+      right: -25px;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.2s ease-in, visibility 0.2s ease-in;
+      &.active {
+        visibility: visible;
+        opacity: 1;
+        transition: opacity 0.2s ease-in, visibility 0.2s ease-in;
+      }
+      img {
+        width: 100%;
+        filter: brightness(0) invert(1);
+      }
+    }
+    img {
+      width: 18px;
+    }
+  }
+  button {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.sort {
+  display: flex;
+  gap: 1.5rem;
+  select {
+    @include gradientButtonAndSelect();
+    cursor: pointer;
+    outline: none;
+    padding: 2px;
+    option {
+      background: #3b5857;
+    }
+  }
+}
+
+.filter-by-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  &__items {
+    display: flex;
+    gap: 1.5rem;
+    button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      justify-content: center;
+      filter: initial;
+      transform: scale(1);
+      transition: filter 0.2s ease-in, transform 0.2s ease-in;
+      &:hover {
+        // transform: scale(1.05);
+        filter: invert(30%);
+        transition: 0.2s ease-in;
+      }
+      &.active img {
+        filter: sepia() saturate(1200%) hue-rotate(350deg);
+        transition: 0.2s ease-in;
+      }
+      span {
+        font-size: 12px;
+      }
+      img {
+        height: 30px;
+      }
+    }
+  }
+}
+
+.filter-by-color {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  .color-buttons {
+    display: flex;
+    gap: 1rem;
+    button {
+      width: 24px;
+      height: 24px;
+      border-radius: 5px;
+      position: relative;
+      &::after {
+        @include checkMark(#192f2d);
+      }
+      &.active::after {
+        width: 6px;
+        height: 10px;
+        border-width: 0 3px 3px 0;
+        transition: width, 0.2s ease-in;
+      }
+      &:nth-of-type(1) {
+        background-color: #fff;
+      }
+      &:nth-of-type(2) {
+        background-color: #fdd700;
+      }
+      &:nth-of-type(3) {
+        background-color: #fd0000;
+      }
+      &:nth-of-type(4) {
+        background-color: #2299eb;
+      }
+      &:nth-of-type(5) {
+        background-color: #08aa05;
+      }
+    }
+  }
+}
+
+.filter-by-size {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  .size-buttons {
+    display: flex;
+    gap: 1rem;
+    &__item {
+      button {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        position: relative;
+        &::after {
+          @include checkMark(#fff);
+        }
+        &.active::after {
+          width: 4px;
+          height: 8px;
+          border-width: 0 2px 2px 0;
+          transition: width, 0.2s ease-in;
+        }
+        span {
+          @include checkboxSpan();
+        }
+      }
+    }
+  }
+}
+
+.filter-by-count,
+.filter-by-year {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  .spans-count,
+  .spans-year {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.favourite-buttons {
+  button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    &::after {
+      @include checkMark(#fff);
+    }
+    &.active::after {
+      width: 4px;
+      height: 8px;
+      border-width: 0 2px 2px 0;
+      transition: width, 0.2s ease-in;
+    }
+    span {
+      @include checkboxSpan();
+    }
+  }
+}
+
+.reset-buttons {
+  display: flex;
+  gap: 1rem;
+  button {
+    @include gradientButtonAndSelect();
+    padding: 0.3rem 0.8rem;
+    border: 1px solid;
+  }
+}
+
+.toys-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  .toys-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 222px);
+    justify-content: center;
+    gap: 2rem;
+    &__item {
+      background: $toy-item-bg;
+      border-radius: 10px;
+      overflow: hidden;
+      padding: 18px 1rem;
+      animation: listItemAnimation 1.8s;
+      position: relative;
+      box-sizing: border-box;
+      border: 3px solid;
+      display: flex;
+      gap: 0.8rem;
+      flex-direction: column;
+      &__information {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+      span.star {
+        right: 10px;
+        position: absolute;
+        bottom: 14px;
+        display: block;
+        height: 30px;
+        width: 30px;
+        visibility: hidden;
+        opacity: 0;
+        transform: scale(0);
+        transition: transform 0.25s ease-in, opacity 0.25s ease-in,
+        visibility 0.2s ease-in;
+      }
+      &.active {
+        border: 3px solid gold;
+        span.star {
+          visibility: visible;
+          opacity: 1;
+          transform: scale(1);
+          transition: 0.3s ease-in;
+        }
+      }
+      cursor: pointer;
+      &__img {
+        height: 105px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: 50%;
+      }
+    }
+  }
+  .empty-container h3 {
+    animation: listItemAnimation 1.8s;
+  }
+}
+
+@keyframes listItemAnimation {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 900px) {
+  .toys-page {
+    flex-direction: column;
+  }
+}
